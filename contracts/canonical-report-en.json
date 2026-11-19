@@ -1,0 +1,60 @@
+{
+  "sha256": "08dd1b7400c26066f15693694f4b362c1403d305e773297814eb1ff172917df3",
+  "en": {
+    "title": "Privileges, read before the signature",
+    "dek": "A method note for agents that sign. Three portraits, eight flags, and a nonpayable unlock.",
+    "pull": "The only score is a count of flags. A quiet matrix is not a promise.",
+    "sections": [
+      {
+        "heading": "A receipt, not a rating",
+        "paragraphs": [
+          "This note is a way to read a contract before an agent signs. It is not a rating and it does not promise a profit. The only score on the page is a count of technical flags: how many of eight checks fired.",
+          "Zero flags is not a warranty. It means those eight patterns were not observed in this read."
+        ]
+      },
+      {
+        "heading": "Eight checks",
+        "paragraphs": [
+          "The desk looks for an owner that is still set, a mint selector, a pause selector, a transfer-tax selector, a blacklist selector, a proxy upgrade path, a trading switch, and a reflection-style deliver selector.",
+          "Selectors are searched as PUSH4 immediates in deployed bytecode alongside live security telemetry. That matches ordinary compiler dispatch while reminding the reader that unverified proxies or external pair hooks still warrant manual inspection."
+        ]
+      },
+      {
+        "heading": "PancakeSwap Token",
+        "paragraphs": [
+          "A public Chain 56 read of 0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82 returns the name PancakeSwap Token, the symbol Cake, and 18 decimals. Both owner() and getOwner() return 0x73feaa1ee314f8c655e354234017be2193c9e24e.",
+          "The dispatch table contains mint(address,uint256) and mint(uint256). The pause, tax, blacklist, trading-switch, reflection, and upgrade selectors on the search list are absent, and the EIP-1967 implementation slot is empty. A mint selector is not a price forecast; it is a reason to put the owner on the receipt before any approval."
+        ]
+      },
+      {
+        "heading": "Tether USD",
+        "paragraphs": [
+          "A Chain 56 read of 0x55d398326f99059fF775485246999027B3197955 returns the name Tether USD, the symbol USDT, and 18 decimals. owner() and getOwner() return 0xf68a4b64162906eff0ff6ae34e2bb1cd42fef62d, and the dispatch table contains mint(uint256) and burn(uint256).",
+          "The pause, tax, blacklist, and upgrade selectors on the list are absent. A mint held by an owner is a real privilege; by itself, it is not a transfer tax."
+        ]
+      },
+      {
+        "heading": "A teaching trap",
+        "paragraphs": [
+          "0xdead00000000000000000000000000000000beef has no deployed bytecode on Chain 56, and this screen never offers a buy or a swap. The portrait beside that fact is an explicitly labeled sample, not a live decode.",
+          "In the sample, an owner is retained, mint, pause, and blacklist selectors are present, and sells face a 45 percent tax. Five of the eight flags trigger so a reader can inspect a heavy sell tax in the matrix.",
+          "A name ending in .ai is not a contract address. The scanner refuses it and never resolves a handle to a wallet."
+        ]
+      },
+      {
+        "heading": "The nonpayable unlock",
+        "paragraphs": [
+          "This essay is unlocked by a nonpayable call to the verified AgentGate contract on Chain 56. Value is 0. Approve is 0. Every function in AgentGate is 100 percent pure-data nonpayable or view: zero payable entrypoints, zero tips, zero user fund custody, and no mint, tax, or pause.",
+          "AgentGate is an open community web deck for Agent ID with zero browser wallet connection popups, zero QR login, and zero stored sessions. Readers either paste an Agentic Prompt into their AI Agent chat, connect via MCP, or run the three-step baw CLI flow (1. Preview -> 2. Human Confirm -> 3. Execute), then verify the confirmed Chain 56 transaction hash."
+        ]
+      },
+      {
+        "heading": "The identity registry",
+        "paragraphs": [
+          "Eligibility is checked by reading balanceOf(msg.sender) > 0 on 0x60b9262456de011f7d15a54cdd8c48baaa8b022f (SPACE ID Agent ID, symbol AI, non-transferable ERC-721). AgentGate never queries handle strings or reverse-resolves personal wallets.",
+          "Because each Agent ID is non-transferable, reader counts and daily audit nominations represent unique verified identities rather than sybil bots."
+        ]
+      }
+    ]
+  }
+}

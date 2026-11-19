@@ -1,0 +1,780 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "voter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "candidateContract",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "utcDay",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newDailyCount",
+        "type": "uint256"
+      }
+    ],
+    "name": "AuditTargetNominated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "reader",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "subjectContract",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "triggeredFlags",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "utcDay",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "note",
+        "type": "string"
+      }
+    ],
+    "name": "PreSignAuditRecorded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "reader",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "readerOrdinal",
+        "type": "uint32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "unlockedAt",
+        "type": "uint64"
+      }
+    ],
+    "name": "PreSignReportUnlocked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "author",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "subjectContract",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "anchoredAt",
+        "type": "uint64"
+      }
+    ],
+    "name": "ReportAnchored",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "AGENT_ID_REGISTRY",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_DAILY_CHECKS_PER_USER",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "RECEIPT_RING_SIZE",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "subjectContract",
+        "type": "address"
+      }
+    ],
+    "name": "anchorCommunityReport",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "subjectContract",
+        "type": "address"
+      }
+    ],
+    "name": "anchorEditorialReport",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "wallet",
+        "type": "address"
+      }
+    ],
+    "name": "checkHoldsAgentId",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "dailyCandidateVotes",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "name": "dailyCheckCount",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "editorialPublisher",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "genesisReportHash",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[4]",
+        "name": "candidates",
+        "type": "address[4]"
+      }
+    ],
+    "name": "getBallotTallies",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "currentUtcDay",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint256[4]",
+        "name": "todayCounts",
+        "type": "uint256[4]"
+      },
+      {
+        "internalType": "uint256[4]",
+        "name": "allTimeCounts",
+        "type": "uint256[4]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getProtocolStats",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "_uniqueAgentIdUsers",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_totalPreSignReceipts",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_totalVotesCast",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_totalReportsAnchored",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_reportUniqueReaders",
+        "type": "uint32"
+      },
+      {
+        "internalType": "address",
+        "name": "_editorialPublisher",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_registry",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRecentReceipts",
+    "outputs": [
+      {
+        "internalType": "address[20]",
+        "name": "readers",
+        "type": "address[20]"
+      },
+      {
+        "internalType": "address[20]",
+        "name": "targets",
+        "type": "address[20]"
+      },
+      {
+        "internalType": "uint64[20]",
+        "name": "timestamps",
+        "type": "uint64[20]"
+      },
+      {
+        "internalType": "uint8[20]",
+        "name": "flagCounts",
+        "type": "uint8[20]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalRecorded",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "hasCheckedContract",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "hasEverInteracted",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "reader",
+        "type": "address"
+      }
+    ],
+    "name": "hasUnlockedGenesis",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "reader",
+        "type": "address"
+      }
+    ],
+    "name": "hasUnlockedReport",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "lastCommunityAnchorUtcDay",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "lastVoteUtcDay",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "subjectContract",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "logPreSignCheck",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "receiptRingTotal",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "subjectContract",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "triggeredFlags",
+        "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "note",
+        "type": "string"
+      }
+    ],
+    "name": "recordPreSignAudit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "reportUnlockedAt",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "reports",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "author",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "subjectContract",
+        "type": "address"
+      },
+      {
+        "internalType": "uint64",
+        "name": "anchoredAt",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint32",
+        "name": "uniqueReaders",
+        "type": "uint32"
+      },
+      {
+        "internalType": "bool",
+        "name": "exists",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "totalCandidateVotes",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalPreSignReceipts",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalReportUnlocks",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalReportsAnchored",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalVotesCast",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "uniqueAgentIdUsers",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "unlockGenesisReport",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "reportHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "unlockReport",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "candidateContract",
+        "type": "address"
+      }
+    ],
+    "name": "voteNextAudit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

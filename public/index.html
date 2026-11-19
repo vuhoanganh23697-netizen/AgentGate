@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AgentGate — Sovereign Editorial Research Deck</title>
+  <meta name="description" content="AgentGate open-web editorial deck: verify contract privileges before your AI Agent signs. Free for every .ai via AI Agent prompt, MCP, and HTTP 402. Technical flags only. No profit promise.">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    try {
+      if (localStorage.getItem("ag-ui-lang") === "vi") document.documentElement.lang = "vi";
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <p class="risk risk-top" role="note">
+    <span class="lang-en">Risk: technical flags only. No buy, no swap, no profit promise. Reads can miss upgrades. Never share seed phrases, private keys, API secrets, or pairing codes.</span>
+    <span class="lang-vi">Rủi ro: chỉ đếm cờ kỹ thuật. Không mua, không đổi, không hứa lợi nhuận. Phép đọc có thể sót nâng cấp. Tuyệt đối không nhập seed, khóa riêng, API secret hay mã ghép nối.</span>
+  </p>
+
+  <div class="scrollport" id="scrollport">
+  <div class="topbar">
+    <header class="mast">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="3" fill="#0c6b4d"/>
+          <path fill="#f3eee4" d="M6.5 8h19v3.2h-19zM6.5 8h3.4V25H6.5zM22.1 8H25.5V25h-3.4zM11.2 15.4h9.6v2.4h-9.6z"/>
+        </svg>
+        <div>
+          <p class="word">AgentGate</p>
+          <p class="sub">
+            <span class="lang-en">Sovereign Editorial Research Deck · Open Web (No Wallet Popup)</span>
+            <span class="lang-vi">Bản thảo nghiên cứu biên tập chủ quyền · Web mở (Không popup ví)</span>
+          </p>
+        </div>
+      </div>
+      <div class="mast-meta">
+        <p class="date">
+          <span class="lang-en">Chain 56 · Vol. I</span>
+          <span class="lang-vi">Chain 56 · Tập I</span>
+          <a id="contract-badge" class="contract-pill pending" href="#judge">Awaiting Contract Config</a>
+        </p>
+        <div class="lang" role="group">
+          <button type="button" data-act="lang" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-act="lang" data-lang="vi" aria-pressed="false">VI</button>
+        </div>
+      </div>
+    </header>
+    <nav aria-label="Sections">
+      <button type="button" data-act="go" data-screen="deck" aria-current="page">
+        <span class="lang-en">Deck</span><span class="lang-vi">Bìa</span>
+      </button>
+      <button type="button" data-act="go" data-screen="scan">
+        <span class="lang-en">Scanner</span><span class="lang-vi">Máy quét</span>
+      </button>
+      <button type="button" data-act="go" data-screen="sign">
+        <span class="lang-en">Agent Prompt &amp; Unlock</span><span class="lang-vi">Prompt Agent &amp; Mở khóa</span>
+      </button>
+      <button type="button" data-act="go" data-screen="vote">
+        <span class="lang-en">Nominations</span><span class="lang-vi">Đề cử</span>
+      </button>
+      <button type="button" data-act="judge" class="nav-judge">
+        <span class="lang-en">Judge's Drawer</span><span class="lang-vi">Ngăn Giám Khảo</span>
+      </button>
+    </nav>
+  </div>
+
+  <main class="wrap">
+    <section class="screen" id="screen-deck" data-screen="deck">
+      <p class="screen-risk">
+        <span class="lang-en">Risk: technical flags only. No buy, no swap, no profit promise. Reads can miss upgrades.</span>
+        <span class="lang-vi">Rủi ro: chỉ đếm cờ kỹ thuật. Không mua, không đổi, không hứa lợi nhuận. Phép đọc có thể sót nâng cấp.</span>
+      </p>
+      <p class="kicker">
+        <span class="lang-en">Ten-second brief · Agentic Wallet Native</span>
+        <span class="lang-vi">Bản tin 10 giây · Tương thích Ví AI Agent</span>
+      </p>
+      <h1>
+        <span class="lang-en" id="positioning">Verify contract privileges before your AI Agent signs — Free for every <code>.ai</code></span>
+        <span class="lang-vi">Kiểm tra đặc quyền hợp đồng trước khi AI Agent ký — miễn phí cho mọi <code>.ai</code></span>
+      </h1>
+      <p class="lang-vi official-line" lang="en">Verify contract privileges before your AI Agent signs — Free for every <code>.ai</code></p>
+      <p class="lede">
+        <span class="lang-en">An open community project for Agent ID. Because Agentic Wallets act through AI chat and MCP rather than browser popups, AgentGate gives you a 1-click prompt for your AI Agent — zero QR login, zero session cookies, value 0, approve 0.</span>
+        <span class="lang-vi">Một dự án cộng đồng mở dành cho Agent ID. Vì Ví AI Agent vận hành qua khung chat AI và MCP (không có nút Connect Ví trình duyệt), AgentGate cung cấp sẵn Prompt 1 chạm để bạn dán thẳng vào AI Agent — không QR đăng nhập, không lưu phiên, value = 0, approve = 0.</span>
+      </p>
+      <p class="flow-exact" lang="en">Agent ID (.ai) -&gt; AI Chat Prompt / HTTP 402 / MCP -&gt; On-Chain Pre-Sign Receipt &amp; Deep Report</p>
+      <ol class="rail">
+        <li>
+          <span class="idx">01</span>
+          <strong>Agent ID (.ai)</strong>
+          <span class="lang-en">Your non-transferable Agent ID unlocks the 0-fee rail. Never type <code>.ai</code> handles into the scanner.</span>
+          <span class="lang-vi">Định danh <code>.ai</code> không chuyển nhượng mở đường ray miễn phí 0đ. Không bao giờ gõ tên <code>.ai</code> vào ô quét.</span>
+        </li>
+        <li>
+          <span class="idx">02</span>
+          <strong>AI Chat Prompt · MCP · 402</strong>
+          <span class="lang-en">Copy the prompt into your AI Agent chat: it simulates first (<code>value: 0, approve: 0</code>) and waits for your confirmation.</span>
+          <span class="lang-vi">Chép Prompt dán vào khung chat AI Agent: hệ thống mô phỏng trước (<code>value: 0, approve: 0</code>) và chờ bạn xác nhận.</span>
+        </li>
+        <li>
+          <span class="idx">03</span>
+          <strong>Pre-Sign Receipt &amp; Deep Report</strong>
+          <span class="lang-en">Paste the confirmed 66-character <code>0x</code> txHash to verify on Chain 56 and read the full SHA-256 anchored note.</span>
+          <span class="lang-vi">Dán mã giao dịch <code>0x</code> đã xác nhận (66 ký tự) để đối chiếu trực tiếp trên Chain 56 và mở toàn văn bài phân tích.</span>
+        </li>
+      </ol>
+      <div class="figures">
+        <article class="figure">
+          <span class="sample-tag" id="tag-receipts">[UI Sample]</span>
+          <p class="num" id="sample-receipts">1,284</p>
+          <p class="fig-label">
+            <span class="lang-en" id="label-receipts-en">Pre-sign safety receipts recorded on AgentGate.</span>
+            <span class="lang-vi" id="label-receipts-vi">Biên nhận an toàn trước chữ ký trên AgentGate.</span>
+          </p>
+        </article>
+        <article class="figure">
+          <span class="sample-tag" id="tag-readers">[UI Sample]</span>
+          <p class="num" id="sample-readers">86</p>
+          <p class="fig-label">
+            <span class="lang-en" id="label-readers-en">Unique <code>.ai</code> Agent ID holders who unlocked the Genesis note.</span>
+            <span class="lang-vi" id="label-readers-vi">Số ví giữ <code>.ai</code> duy nhất đã mở khóa bài nghiên cứu gốc.</span>
+          </p>
+        </article>
+      </div>
+      <div class="actions">
+        <button type="button" data-act="go" data-screen="sign">
+          <span class="lang-en">Copy AI Agent Prompt (0-Fee Unlock)</span>
+          <span class="lang-vi">Chép Prompt cho AI Agent (Mở khóa 0đ)</span>
+        </button>
+        <button type="button" class="ghost" data-act="go" data-screen="scan">
+          <span class="lang-en">Open 0x Privilege Scanner</span>
+          <span class="lang-vi">Mở máy quét hợp đồng 0x</span>
+        </button>
+      </div>
+      <p class="screen-risk end">
+        <span class="lang-en">Risk: AgentGate holds zero user funds and never broadcasts on your behalf. No buy, no swap, no profit promise.</span>
+        <span class="lang-vi">Rủi ro: AgentGate không giữ tiền người dùng và không bao giờ tự phát giao dịch thay bạn. Không mua, không đổi, không hứa lợi nhuận.</span>
+      </p>
+    </section>
+
+    <section class="screen" id="screen-scan" data-screen="scan" hidden>
+      <p class="screen-risk">
+        <span class="lang-en">Risk: technical flags only. No buy, no swap, no profit promise. Reads can miss upgrades.</span>
+        <span class="lang-vi">Rủi ro: chỉ đếm cờ kỹ thuật. Không mua, không đổi, không hứa lợi nhuận. Phép đọc có thể sót nâng cấp.</span>
+      </p>
+      <p class="kicker">
+        <span class="lang-en">Privilege scanner · 0x contract addresses only</span>
+        <span class="lang-vi">Máy quét đặc quyền · chỉ nhận địa chỉ hợp đồng 0x</span>
+      </p>
+      <h2>
+        <span class="lang-en">Whose contract is the agent about to trust?</span>
+        <span class="lang-vi">Tác tử sắp tin hợp đồng của ai?</span>
+      </h2>
+      <form id="scan-form" action="/api/scan" method="post" autocomplete="off">
+        <label for="addr">
+          <span class="lang-en">Target contract address (Chain 56)</span>
+          <span class="lang-vi">Địa chỉ hợp đồng cần kiểm tra (Chain 56)</span>
+        </label>
+        <input id="addr" name="contract" type="text" inputmode="text" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="0x + 40 hex characters" aria-describedby="addr-hint scan-error" maxlength="180">
+        <p class="hint" id="addr-hint">
+          <span class="lang-en">Only a 0x address of 42 characters. Any <code>.ai</code> handle is rejected immediately (HTTP 400) and is never resolved.</span>
+          <span class="lang-vi">Chỉ nhận địa chỉ 0x đủ 42 ký tự. Mọi tên <code>.ai</code> bị từ chối ngay lập tức (HTTP 400) và không bao giờ phân giải sang ví.</span>
+        </p>
+        <p id="scan-error" class="alert" role="alert"></p>
+        <button type="submit">
+          <span class="lang-en">Scan privileges</span>
+          <span class="lang-vi">Quét đặc quyền</span>
+        </button>
+      </form>
+      <p class="hint">
+        <span class="lang-en">Or inspect a preset contract. Cake and Tether USD are read live from Chain 56 RPC; the trap is an explicitly labeled sample.</span>
+        <span class="lang-vi">Hoặc bấm chọn mẫu kiểm tra nhanh. Cake và Tether USD đọc trực tiếp từ RPC Chain 56; mẫu bẫy được gắn nhãn minh họa rõ ràng.</span>
+      </p>
+      <div class="samples">
+        <button type="button" class="ghost" data-act="fill" data-address="0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">Cake</button>
+        <button type="button" class="ghost" data-act="fill" data-address="0x55d398326f99059fF775485246999027B3197955">USDT</button>
+        <button type="button" class="ghost" data-act="fill" data-address="0xdead00000000000000000000000000000000beef">
+          <span class="lang-en">Trap sample · 45% sell tax</span>
+          <span class="lang-vi">Mẫu bẫy · thuế bán 45%</span>
+        </button>
+      </div>
+      <p id="scan-status" class="hint" role="status"></p>
+      <div id="scan-result"></div>
+
+      <article class="panel" id="essay">
+        <p class="kicker">
+          <span class="lang-en">Community Project for Agent ID</span>
+          <span class="lang-vi">Dự án cộng đồng cho Agent ID</span>
+        </p>
+        <h2>
+          <span class="lang-en" id="essay-title-en">Privileges, read before the signature</span>
+          <span class="lang-vi" id="essay-title-vi">Đặc quyền, đọc trước chữ ký</span>
+        </h2>
+        <p class="dek">
+          <span class="lang-en" id="essay-dek-en">A method note for agents that sign. Three portraits, eight flags, and a nonpayable unlock.</span>
+          <span class="lang-vi" id="essay-dek-vi">Một ghi chú phương pháp cho tác tử sắp ký. Ba chân dung, tám cờ, và một lệnh mở khóa không chuyển tiền.</span>
+        </p>
+        <dl>
+          <dt>SHA-256</dt>
+          <dd class="hash" id="report-hash">…</dd>
+          <dt>
+            <span class="lang-en">Unique .ai readers</span>
+            <span class="lang-vi">Số định danh .ai duy nhất đã đọc</span>
+          </dt>
+          <dd><span id="reader-count">86</span> <span class="sample-tag" id="tag-essay-readers">[UI Sample]</span></dd>
+        </dl>
+        <p class="perms">
+          <span class="lang-en">Unlock permissions: AgentGate holds zero user funds. No mint. No tax. No pause. value 0. approve 0. nonpayable.</span>
+          <span class="lang-vi">Quyền hợp đồng mở khóa: AgentGate không giữ tiền người dùng. Không mint. Không thuế. Không pause. value 0. approve 0. nonpayable.</span>
+        </p>
+        <div class="actions">
+          <button type="button" id="unlock-btn" data-act="unlock">
+            <span class="lang-en">Unlock via AI Agent Prompt (0 Fee)</span>
+            <span class="lang-vi">Mở khóa qua Prompt AI Agent (0đ)</span>
+          </button>
+        </div>
+        <div id="essay-body" class="essay" hidden></div>
+      </article>
+
+      <section class="panel" id="wall-panel">
+        <p class="kicker">
+          <span class="lang-en">Public On-Chain Pre-Sign Receipt Wall</span>
+          <span class="lang-vi">Bảng Biên Nhận Kiểm Tra Trước Khi Ký On-Chain</span>
+        </p>
+        <h3>
+          <span class="lang-en">Recent Agent ID safety checks on Chain 56</span>
+          <span class="lang-vi">Các lượt kiểm tra an toàn gần nhất từ ví giữ Agent ID</span>
+        </h3>
+        <div id="wall-body" class="hint">
+          <span class="lang-en">Once <code>agentGateContract</code> is configured, the latest 20 on-chain <code>recordPreSignAudit</code> receipts appear here automatically via a single read-only RPC call.</span>
+          <span class="lang-vi">Ngay khi điền địa chỉ <code>agentGateContract</code>, 20 biên nhận <code>recordPreSignAudit</code> mới nhất trên Chain 56 sẽ tự động hiển thị tại đây qua phép đọc RPC trực tiếp.</span>
+        </div>
+      </section>
+
+      <p class="screen-risk end">
+        <span class="lang-en">Risk: AgentGate holds zero user funds and never broadcasts on your behalf. No buy, no swap, no profit promise.</span>
+        <span class="lang-vi">Rủi ro: AgentGate không giữ tiền người dùng và không bao giờ tự phát giao dịch thay bạn. Không mua, không đổi, không hứa lợi nhuận.</span>
+      </p>
+    </section>
+
+    <section class="screen" id="screen-sign" data-screen="sign" hidden>
+      <p class="screen-risk">
+        <span class="lang-en">Risk: technical flags only. No buy, no swap, no profit promise. Reads can miss upgrades.</span>
+        <span class="lang-vi">Rủi ro: chỉ đếm cờ kỹ thuật. Không mua, không đổi, không hứa lợi nhuận. Phép đọc có thể sót nâng cấp.</span>
+      </p>
+      <p class="kicker">
+        <span class="lang-en">Open Web · Connect via AI Agent Prompt (Zero Browser Wallet Popup)</span>
+        <span class="lang-vi">Web Mở · Kết nối qua Prompt AI Agent (Không dùng Connect Ví trình duyệt)</span>
+      </p>
+      <h2>
+        <span class="lang-en">A nonpayable unlock. Nothing moves.</span>
+        <span class="lang-vi">Một lệnh mở khóa nonpayable. Không có gì chuyển đi.</span>
+      </h2>
+      <p class="sign-exact" lang="en">value: 0 · approve: 0 · nonpayable · zero wallet session</p>
+
+      <div class="agent-banner">
+        <strong>
+          <span class="lang-en">Step A — Copy Prompt &amp; Paste into your AI Agent Chat</span>
+          <span class="lang-vi">Bước A — Chép Prompt &amp; Dán vào khung chat AI Agent của bạn</span>
+        </strong>
+        <p class="hint">
+          <span class="lang-en">Agentic Wallets work like MCP: enable Developer Mode in your Agentic Wallet Settings, open your AI Agent chat, paste the prompt below, review the <code>0-value</code> simulation preview, and confirm inside your chat. We never ask for QR login, pairing codes, seed phrases, or API keys.</span>
+          <span class="lang-vi">Ví AI Agent hoạt động giống MCP: bật Developer Mode trong cài đặt Ví Agent, mở khung chat AI Agent, dán nguyên văn Prompt bên dưới, kiểm tra bản mô phỏng <code>value = 0</code>, rồi tự bấm xác nhận trong khung chat. Trang web tuyệt đối không hỏi QR đăng nhập, mã ghép nối, seed hay API key.</span>
+        </p>
+        <div class="prompt-tabs" role="group">
+          <button type="button" data-act="prompt-tab" data-mode="presignAudit" aria-pressed="true">
+            <span class="lang-en">1. Audit Contract + Log Receipt + Unlock</span>
+            <span class="lang-vi">1. Quét hợp đồng + Ghi biên nhận + Mở khóa</span>
+          </button>
+          <button type="button" data-act="prompt-tab" data-mode="unlockGenesis" aria-pressed="false">
+            <span class="lang-en">2. Quick 0-Arg Essay Unlock (<code>unlockGenesisReport</code>)</span>
+            <span class="lang-vi">2. Mở khóa nhanh 0 tham số (<code>unlockGenesisReport</code>)</span>
+          </button>
+        </div>
+        <pre id="agent-prompt-box" class="prompt-box">Loading AI Agent prompt…</pre>
+        <div class="actions">
+          <button type="button" data-act="copy-agent-prompt">
+            <span class="lang-en">Copy Prompt for AI Agent</span>
+            <span class="lang-vi">Chép Prompt dán vào AI Agent</span>
+          </button>
+          <span id="agent-prompt-copied" class="ok-msg" role="status"></span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>
+          <span class="lang-en">Step B — Verify Confirmed Chain 56 <code>0x</code> Transaction Hash</span>
+          <span class="lang-vi">Bước B — Kiểm chứng Mã Giao Dịch <code>0x</code> Đã Xác Nhận Trên Chain 56</span>
+        </h3>
+        <p class="hint">
+          <span class="lang-en">After your AI Agent executes the nonpayable call (<code>unlockGenesisReport</code> or <code>recordPreSignAudit</code>) on Chain 56, paste the confirmed <code>0x</code> transaction hash (66 characters) to verify your Agent ID receipt on-chain and open the full SHA-256 anchored essay. Public <code>0x</code> txHash only — never paste <code>.ai</code> handles or secrets.</span>
+          <span class="lang-vi">Sau khi AI Agent thực thi lệnh nonpayable (<code>unlockGenesisReport</code> hoặc <code>recordPreSignAudit</code>) trên Chain 56, dán mã giao dịch <code>0x...</code> (66 ký tự) để kiểm chứng trực tiếp biên nhận Agent ID on-chain và mở toàn văn bài nghiên cứu. Chỉ nhận mã <code>0x</code> công khai — không nhập tên <code>.ai</code> hay khóa bí mật.</span>
+        </p>
+        <form id="verify-form" autocomplete="off">
+          <label for="proof-input">
+            <span class="lang-en">Confirmed Chain 56 <code>0x</code> transaction hash (66 characters)</span>
+            <span class="lang-vi">Mã giao dịch <code>0x</code> đã xác nhận trên Chain 56 (66 ký tự)</span>
+          </label>
+          <input id="proof-input" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="0x + 64 hex characters" maxlength="100">
+          <p id="verify-error" class="alert" role="alert"></p>
+          <p id="verify-ok" class="ok-msg" role="status"></p>
+          <div class="actions">
+            <button type="submit">
+              <span class="lang-en">Verify On-Chain &amp; Open Full Essay</span>
+              <span class="lang-vi">Kiểm chứng On-Chain &amp; Mở toàn văn bài viết</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <dl class="panel">
+        <dt>Contract (<code>Chain 56</code>)</dt>
+        <dd class="mono" style="background:transparent;color:inherit;padding:0" id="sign-contract-addr">0x0000000000000000000000000000000000000000</dd>
+        <dt>value</dt>
+        <dd id="value-line">0</dd>
+        <dt>approve</dt>
+        <dd id="approve-line">0</dd>
+        <dt>
+          <span class="lang-en">Estimated gas</span>
+          <span class="lang-vi">Phí gas ước tính</span>
+        </dt>
+        <dd><span id="gas-estimate">~0.00005 BNB (&lt; $0.05)</span> <span class="sample-tag">[UI Sample]</span></dd>
+      </dl>
+
+      <div class="panel perms">
+        <h3>
+          <span class="lang-en">Disclosed AgentGate contract permissions</span>
+          <span class="lang-vi">Công bố toàn bộ quyền của hợp đồng AgentGate</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="lang-en">Holds zero user funds (no vault, no <code>receive()</code>, no <code>fallback()</code>).</span>
+            <span class="lang-vi">Không giữ bất kỳ khoản tiền nào của người dùng (không két tiền, không <code>receive()</code>, không <code>fallback()</code>).</span>
+          </li>
+          <li>
+            <span class="lang-en">Exposes no <code>mint</code>, no <code>tax</code>, no <code>pause</code>, no <code>blacklist</code>, and no <code>proxy</code> upgrade.</span>
+            <span class="lang-vi">Không có hàm <code>mint</code>, không <code>thuế</code>, không <code>pause</code>, không <code>danh sách chặn</code>, không <code>proxy</code> nâng cấp.</span>
+          </li>
+          <li>
+            <span class="lang-en"><code>editorialPublisher</code> is <code>immutable</code>: it can only anchor new SHA-256 report hashes and holds zero financial privileges (zero <code>payable</code> functions exist anywhere in <code>AgentGate.sol</code>).</span>
+            <span class="lang-vi"><code>editorialPublisher</code> là hằng bất biến (<code>immutable</code>), chỉ dùng để neo mã băm SHA-256 cho bài nghiên cứu mới và hoàn toàn không có quyền tài chính (<code>0</code> hàm <code>payable</code> trong toàn bộ <code>AgentGate.sol</code>).</span>
+          </li>
+          <li>
+            <span class="lang-en">Any ERC-20 tokens mistakenly transferred directly to the contract address cannot be recovered (no admin sweep function exists).</span>
+            <span class="lang-vi">Mọi token ERC-20 gửi nhầm trực tiếp vào địa chỉ hợp đồng sẽ không thể rút ra (hợp đồng không có hàm rút admin).</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="cli-exact" lang="en">1. Preview -&gt; 2. Human Confirm -&gt; 3. Execute</p>
+      <p class="hint">
+        <span class="lang-en">Interactive 3-step safety walkthrough (also available for judges testing without spending gas):</span>
+        <span class="lang-vi">Mô phỏng quy trình an toàn 3 bước bắt buộc (giúp Ban Giám Khảo kiểm thử nhanh toàn bộ luồng bảo vệ):</span>
+      </p>
+      <ol class="steps" id="steps">
+        <li class="step current" data-step="1">
+          <span class="k">1. Preview</span>
+          <p>
+            <span class="lang-en">Inspect the parsed nonpayable calldata. <code>value</code> stays 0 and <code>approve</code> stays 0.</span>
+            <span class="lang-vi">Kiểm tra calldata nonpayable đã phân tích. <code>value</code> giữ 0 và <code>approve</code> giữ 0.</span>
+          </p>
+          <button type="button" id="btn-preview" data-act="preview">
+            <span class="lang-en">Run preview</span>
+            <span class="lang-vi">Chạy preview</span>
+          </button>
+        </li>
+        <li class="step locked" data-step="2">
+          <span class="k">2. Human Confirm</span>
+          <label class="check">
+            <input type="checkbox" id="human-check" disabled>
+            <span>
+              <span class="lang-en">I confirm this call is nonpayable, value 0, approve 0, holds no user funds, and has no mint, tax, or pause.</span>
+              <span class="lang-vi">Tôi xác nhận lệnh này là nonpayable, value 0, approve 0, không giữ tiền người dùng, và không có mint, thuế, hay pause.</span>
+            </span>
+          </label>
+          <button type="button" id="btn-confirm" data-act="confirm" disabled>
+            <span class="lang-en">Confirm</span>
+            <span class="lang-vi">Xác nhận</span>
+          </button>
+        </li>
+        <li class="step locked" data-step="3">
+          <span class="k">3. Execute</span>
+          <p>
+            <span class="lang-en">Opens the full essay in preview mode. Server never holds keys or broadcasts.</span>
+            <span class="lang-vi">Mở bài nghiên cứu ở chế độ kiểm thử. Máy chủ không giữ khóa và không phát giao dịch.</span>
+          </p>
+          <button type="button" id="btn-execute" data-act="execute" disabled>
+            <span class="lang-en">Execute preview unlock</span>
+            <span class="lang-vi">Mở bài chế độ kiểm thử</span>
+          </button>
+        </li>
+      </ol>
+      <p id="flow-error" class="alert" role="alert"></p>
+      <div id="preview-out"></div>
+
+      <div class="cards">
+        <article class="panel">
+          <h3>
+            <span class="lang-en">Developer Card 1 — <code>baw</code> CLI Preview</span>
+            <span class="lang-vi">Thẻ Kỹ sư 1 — Lệnh CLI <code>baw</code> Preview</span>
+          </h3>
+          <p class="hint">
+            <span class="lang-en">For local terminal agents. Copying never skips human confirmation.</span>
+            <span class="lang-vi">Dành cho tác tử chạy trên terminal. Luôn đi qua bước xác nhận của người dùng.</span>
+          </p>
+          <pre id="command">baw contract-call preview --value 0 --json</pre>
+          <button type="button" class="ghost" data-act="copy">
+            <span class="lang-en">Copy <code>baw</code> preview command</span>
+            <span class="lang-vi">Chép lệnh <code>baw</code> preview</span>
+          </button>
+          <p id="copy-status" class="hint" role="status"></p>
+        </article>
+        <article class="panel">
+          <h3>
+            <span class="lang-en">Developer Card 2 — SPACE ID Agent ID Registry RPC</span>
+            <span class="lang-vi">Thẻ Kỹ sư 2 — Đọc trực tiếp sổ Agent ID RPC</span>
+          </h3>
+          <p>
+            <span class="lang-en">Read-only <code>eth_call</code> verification of the official non-transferable registry on Chain 56.</span>
+            <span class="lang-vi">Kiểm tra chỉ đọc <code>eth_call</code> tới hợp đồng sổ đăng ký Agent ID trên Chain 56.</span>
+          </p>
+          <p><code id="registry-address">0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</code></p>
+          <button type="button" data-act="registry">
+            <span class="lang-en">Run live registry read</span>
+            <span class="lang-vi">Chạy phép đọc sổ trực tiếp</span>
+          </button>
+          <div id="registry-result"></div>
+        </article>
+      </div>
+      <p class="screen-risk end">
+        <span class="lang-en">Risk: AgentGate holds zero user funds and never broadcasts on your behalf. No buy, no swap, no profit promise.</span>
+        <span class="lang-vi">Rủi ro: AgentGate không giữ tiền người dùng và không bao giờ tự phát giao dịch thay bạn. Không mua, không đổi, không hứa lợi nhuận.</span>
+      </p>
+    </section>
+
+    <section class="screen" id="screen-vote" data-screen="vote" hidden>
+      <p class="screen-risk">
+        <span class="lang-en">Risk: technical flags only. No buy, no swap, no profit promise. Reads can miss upgrades.</span>
+        <span class="lang-vi">Rủi ro: chỉ đếm cờ kỹ thuật. Không mua, không đổi, không hứa lợi nhuận. Phép đọc có thể sót nâng cấp.</span>
+      </p>
+      <p class="kicker">
+        <span class="lang-en">Tomorrow’s desk · Sybil-resistant ballot</span>
+        <span class="lang-vi">Bàn ngày mai · Bỏ phiếu chống bot</span>
+      </p>
+      <h2>
+        <span class="lang-en">Which contract should the desk read next?</span>
+        <span class="lang-vi">Bàn biên tập nên mổ xẻ hợp đồng nào tiếp theo?</span>
+      </h2>
+      <p class="vote-exact" lang="en">1 .ai = 1 Vote/Day (UTC)</p>
+      <p>
+        <span class="lang-en">Select a candidate below to generate its nonpayable <code>voteNextAudit(address)</code> prompt for your AI Agent. Because <code>.ai</code> Agent IDs are non-transferable, bots cannot buy extra votes.</span>
+        <span class="lang-vi">Bấm chọn một hợp đồng ứng viên bên dưới để lấy Prompt bỏ phiếu <code>voteNextAudit(address)</code> cho AI Agent của bạn. Vì <code>.ai</code> không thể chuyển nhượng, bot không thể mua gom phiếu.</span>
+      </p>
+      <div class="ballots" id="ballots">
+        <button type="button" class="ballot" data-act="vote" data-choice="cake" data-address="0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82" aria-pressed="true">
+          <span class="sample-tag ballot-sample-tag">[UI Sample]</span>
+          <strong>Cake</strong>
+          <span class="tally" data-base="42" data-choice="cake">42</span>
+          <span class="addr">0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82</span>
+        </button>
+        <button type="button" class="ballot" data-act="vote" data-choice="usdt" data-address="0x55d398326f99059fF775485246999027B3197955" aria-pressed="false">
+          <span class="sample-tag ballot-sample-tag">[UI Sample]</span>
+          <strong>USDT</strong>
+          <span class="tally" data-base="37" data-choice="usdt">37</span>
+          <span class="addr">0x55d398326f99059fF775485246999027B3197955</span>
+        </button>
+        <button type="button" class="ballot" data-act="vote" data-choice="btcb" data-address="0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c" aria-pressed="false">
+          <span class="sample-tag ballot-sample-tag">[UI Sample]</span>
+          <strong>BTCB</strong>
+          <span class="tally" data-base="18" data-choice="btcb">18</span>
+          <span class="addr">0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c</span>
+        </button>
+        <button type="button" class="ballot" data-act="vote" data-choice="eth" data-address="0x2170Ed0880ac9A755fd29B2688956BD959F933F8" aria-pressed="false">
+          <span class="sample-tag ballot-sample-tag">[UI Sample]</span>
+          <strong>ETH</strong>
+          <span class="tally" data-base="11" data-choice="eth">11</span>
+          <span class="addr">0x2170Ed0880ac9A755fd29B2688956BD959F933F8</span>
+        </button>
+      </div>
+      <p id="vote-note" class="hint"></p>
+
+      <div class="agent-banner">
+        <strong>
+          <span class="lang-en">AI Agent Vote Prompt (<code>1 .ai = 1 Vote/Day · value: 0</code>)</span>
+          <span class="lang-vi">Prompt Bỏ Phiếu cho AI Agent (<code>1 .ai = 1 Phiếu/Ngày · value: 0</code>)</span>
+        </strong>
+        <pre id="vote-prompt-box" class="prompt-box">Loading vote prompt…</pre>
+        <div class="actions">
+          <button type="button" data-act="copy-vote-prompt">
+            <span class="lang-en">Copy Vote Prompt for AI Agent</span>
+            <span class="lang-vi">Chép Prompt Bỏ Phiếu cho AI Agent</span>
+          </button>
+          <span id="vote-prompt-copied" class="ok-msg" role="status"></span>
+        </div>
+      </div>
+
+      <aside class="panel zero-value" id="zero-value-card">
+        <p class="stamp">
+          <span class="lang-en">100% NONPAYABLE</span>
+          <span class="lang-vi">100% KHÔNG NHẬN TIỀN</span>
+        </p>
+        <h3>
+          <span class="lang-en">Zero-Value Architecture — Zero Payable Functions in Bytecode</span>
+          <span class="lang-vi">Kiến trúc Không Chuyển Tiền — 0 Hàm Payable Trong Bytecode</span>
+        </h3>
+        <p>
+          <span class="lang-en">Every entrypoint in <code>AgentGate.sol</code> is strictly <code>nonpayable</code> or <code>view</code>, with no <code>receive()</code>, no <code>fallback()</code>, no tip function, and zero ERC-20 token approvals. Any transaction sent with <code>msg.value &gt; 0</code> reverts automatically at the EVM dispatcher level.</span>
+          <span class="lang-vi">Mọi hàm trong <code>AgentGate.sol</code> đều là <code>nonpayable</code> hoặc <code>view</code>, không có <code>receive()</code>, không <code>fallback()</code>, không hàm tip và <code>0</code> xin quyền <code>approve</code> token. Mọi giao dịch đính kèm <code>msg.value &gt; 0</code> đều tự động bị EVM từ chối ngay lập tức.</span>
+        </p>
+      </aside>
+      <p class="screen-risk end">
+        <span class="lang-en">Risk: AgentGate holds zero user funds and never broadcasts on your behalf. No buy, no swap, no profit promise.</span>
+        <span class="lang-vi">Rủi ro: AgentGate không giữ tiền người dùng và không bao giờ tự phát giao dịch thay bạn. Không mua, không đổi, không hứa lợi nhuận.</span>
+      </p>
+    </section>
+  </main>
+  </div>
+
+  <p class="risk risk-bottom" role="note">
+    <span class="lang-en">Risk: AgentGate holds zero user funds and never broadcasts on your behalf. No buy, no swap, no profit promise.</span>
+    <span class="lang-vi">Rủi ro: AgentGate không giữ tiền người dùng và không bao giờ tự phát giao dịch thay bạn. Không mua, không đổi, không hứa lợi nhuận.</span>
+  </p>
+
+  <div id="judge" class="drawer" role="dialog" aria-modal="true" aria-labelledby="judge-title" hidden>
+    <p class="screen-risk">
+      <span class="lang-en">Risk: technical flags only. No buy, no swap, no profit promise. Reads can miss upgrades.</span>
+      <span class="lang-vi">Rủi ro: chỉ đếm cờ kỹ thuật. Không mua, không đổi, không hứa lợi nhuận. Phép đọc có thể sót nâng cấp.</span>
+    </p>
+    <button type="button" class="ghost" data-act="close-judge" id="judge-close">
+      <span class="lang-en">Close</span>
+      <span class="lang-vi">Đóng</span>
+    </button>
+    <h2 id="judge-title" tabindex="-1">
+      <span class="lang-en">Judge's Drawer</span>
+      <span class="lang-vi">Ngăn Giám Khảo</span>
+    </h2>
+    <p>
+      <span class="lang-en">One tap from every screen. Open-source MIT (<code>AgentGate.sol</code>, <code>solc 0.8.24</code>), live <code>/mcp</code> JSON-RPC server, <code>/skills/agentgate-firewall/SKILL.md</code>, and dual-rail <code>HTTP 402</code>.</span>
+      <span class="lang-vi">Một chạm từ mọi màn hình. Mã nguồn mở MIT (<code>AgentGate.sol</code>, <code>solc 0.8.24</code>), máy chủ <code>/mcp</code> JSON-RPC trực tiếp, <code>/skills/agentgate-firewall/SKILL.md</code>, và bắt tay <code>HTTP 402</code> hai nhánh.</span>
+    </p>
+
+    <h3>
+      <span class="lang-en">Official Evaluation Criteria · 30 / 25 / 25 / 20</span>
+      <span class="lang-vi">Bốn Tiêu Chí Chấm Giải Chính Thức · 30 / 25 / 25 / 20</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th><span class="lang-en">Criterion</span><span class="lang-vi">Tiêu chí</span></th>
+          <th><span class="lang-en">Weight</span><span class="lang-vi">Trọng số</span></th>
+          <th><span class="lang-en">Live Implementation</span><span class="lang-vi">Nơi kiểm chứng trực tiếp</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lang-en">Agent ID application depth</span><span class="lang-vi">Độ sâu ứng dụng Agent ID</span></td>
+          <td class="weight">30</td>
+          <td><span class="lang-en">On-chain <code>balanceOf &gt; 0</code> gate on <code>0x60B9...022F</code>, <code>recordPreSignAudit</code> safety receipts, <code>1 .ai = 1 Vote/Day</code>, SHA-256 anchored research.</span><span class="lang-vi">Kiểm tra <code>balanceOf &gt; 0</code> trên <code>0x60B9...022F</code>, biên nhận <code>recordPreSignAudit</code>, bầu chọn <code>1 .ai = 1 Phiếu/Ngày</code>, bài viết neo SHA-256.</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Practicality and feasibility</span><span class="lang-vi">Tính thực tiễn và khả thi</span></td>
+          <td class="weight">25</td>
+          <td><span class="lang-en">1-click AI Agent Chat Prompt (pre-filled from live 8-flag scanner), live <code>POST /mcp</code> (<code>tools/call</code>), <code>SKILL.md</code>, and Dual-Rail <code>HTTP 402</code> (<code>amount: 0</code>).</span><span class="lang-vi">Prompt 1 chạm cho AI Agent (điền sẵn kết quả quét 8 cờ), máy chủ <code>POST /mcp</code> (<code>tools/call</code>), <code>SKILL.md</code>, và <code>HTTP 402</code> (<code>amount: 0</code>).</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Product completion</span><span class="lang-vi">Độ hoàn thiện sản phẩm</span></td>
+          <td class="weight">25</td>
+          <td><span class="lang-en">Bilingual EN/VI mobile+desktop deck, <code>solc 0.8.24</code> verified <code>AgentGate.sol</code> (<code>0</code> user custody, anti-farming caps), and automated safety test suite.</span><span class="lang-vi">Song ngữ EN/VI mượt trên di động &amp; máy tính, hợp đồng mở <code>AgentGate.sol</code> chống cày ảo, và bộ kiểm tự động 9 lằn ranh đỏ.</span></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Innovation</span><span class="lang-vi">Đổi mới sáng tạo</span></td>
+          <td class="weight">20</td>
+          <td><span class="lang-en">Pre-Sign Privilege Firewall &amp; public on-chain safety receipt wall built natively for chat-driven AI Agent Wallets rather than browser popups.</span><span class="lang-vi">Tường lửa đặc quyền trước khi ký &amp; bảng biên nhận công khai on-chain thiết kế riêng cho Ví AI Agent vận hành qua khung chat.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>
+      <span class="lang-en">Nine Safety Red Lines</span>
+      <span class="lang-vi">Chín lằn ranh đỏ an toàn</span>
+    </h3>
+    <ol>
+      <li><span class="lang-en">Zero browser wallet connect popup, zero QR login, zero pairing code, zero stored sessions.</span><span class="lang-vi">Không nút Connect Ví trình duyệt, không QR đăng nhập, không mã ghép nối, không lưu phiên.</span></li>
+      <li><span class="lang-en">Every prompt and UI walkthrough enforces <code>1. Preview -&gt; 2. Human Confirm -&gt; 3. Execute</code>.</span><span class="lang-vi">Mọi Prompt và luồng giao diện đều bắt buộc đi qua <code>1. Preview -&gt; 2. Human Confirm -&gt; 3. Execute</code>.</span></li>
+      <li><span class="lang-en">100% pure-data <code>nonpayable</code> contract: zero <code>payable</code> functions, zero tips, <code>value: 0</code>, and <code>approve: 0</code> across every call and <code>HTTP 402</code> rail.</span><span class="lang-vi">Hợp đồng thuần dữ liệu <code>nonpayable</code> 100%: <code>0</code> hàm <code>payable</code>, không hàm tip, <code>value: 0</code> và <code>approve: 0</code> trên mọi lệnh gọi và <code>HTTP 402</code>.</span></li>
+      <li><span class="lang-en">MIT open-source <code>AgentGate.sol</code>: zero user custody, no mint, no tax, no pause, no blacklist, no proxy.</span><span class="lang-vi">Hợp đồng mở MIT <code>AgentGate.sol</code>: không giữ tiền, không mint, không thuế, không pause, không blacklist, không proxy.</span></li>
+      <li><span class="lang-en">Independent <code>AgentGate</code> brand in ivory and emerald — zero exchange brand impersonation.</span><span class="lang-vi">Thương hiệu độc lập <code>AgentGate</code> tông ngà và lục bảo — không mạo danh thương hiệu sàn.</span></li>
+      <li><span class="lang-en">Zero inputs for seed phrases, private keys, API secrets, or pairing codes.</span><span class="lang-vi">Tuyệt đối không có ô nhập seed, khóa riêng, API secret hay mã ghép nối.</span></li>
+      <li><span class="lang-en">Neutral flag counts (<code>X / 8 flags triggered</code>) — zero return or profit promises.</span><span class="lang-vi">Chỉ đếm cờ kỹ thuật trung lập (<code>X / 8 cờ kích hoạt</code>) — không hứa hẹn lợi nhuận.</span></li>
+      <li><span class="lang-en">Persistent bilingual risk banners at top and bottom of every screen; zero Buy/Swap buttons.</span><span class="lang-vi">Thanh cảnh báo rủi ro song ngữ cố định đầu và chân mọi màn hình; không có nút Buy/Swap.</span></li>
+      <li><span class="lang-en">Scanner accepts only 42-char <code>0x</code> contract addresses and rejects <code>.ai</code> handles with <code>HTTP 400</code>.</span><span class="lang-vi">Ô quét chỉ nhận địa chỉ hợp đồng <code>0x</code> 42 ký tự và chặn cứng tên <code>.ai</code> bằng <code>HTTP 400</code>.</span></li>
+    </ol>
+    <div class="actions">
+      <button type="button" class="ghost" data-act="probe-ai">
+        <span class="lang-en">Test: Reject a <code>.ai</code> handle (<code>HTTP 400</code>)</span>
+        <span class="lang-vi">Thử: Từ chối tên <code>.ai</code> (<code>HTTP 400</code>)</span>
+      </button>
+      <button type="button" class="ghost" data-act="probe-addr">
+        <span class="lang-en">Test: Validate 42-char <code>0x</code></span>
+        <span class="lang-vi">Thử: Kiểm tra <code>0x</code> 42 ký tự</span>
+      </button>
+      <a class="btn" style="text-decoration:none;background:transparent;color:var(--emerald-ink)" href="/skills/agentgate-firewall/SKILL.md" target="_blank" rel="noopener">SKILL.md ↗</a>
+    </div>
+    <p id="probe-out" class="alert" role="status"></p>
+
+    <h3>HTTP 402 · <span class="lang-en">Unified Dual-Rail (<code>GET /api/report</code>)</span><span class="lang-vi">Hai đường ray (<code>GET /api/report</code>)</span></h3>
+    <pre id="json-402" class="paper-pre">…</pre>
+    <h3><code>/mcp</code> · <span class="lang-en">Live JSON-RPC Manifest</span><span class="lang-vi">Manifest JSON-RPC Trực Tiếp</span></h3>
+    <pre id="json-mcp" class="paper-pre">…</pre>
+    <p class="screen-risk end">
+      <span class="lang-en">Risk: AgentGate holds zero user funds and never broadcasts on your behalf. No buy, no swap, no profit promise.</span>
+      <span class="lang-vi">Rủi ro: AgentGate không giữ tiền người dùng và không bao giờ tự phát giao dịch thay bạn. Không mua, không đổi, không hứa lợi nhuận.</span>
+    </p>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
