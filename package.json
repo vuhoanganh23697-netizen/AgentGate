@@ -1,0 +1,17 @@
+{
+  "name": "agentgate-editorial-deck",
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "description": "AgentGate Sovereign Editorial Research Deck — Pre-Sign Contract Privilege Firewall & Soulbound .ai Attestation Protocol",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node dev-server.mjs",
+    "dev": "node dev-server.mjs",
+    "test": "node scripts/verify-production.mjs",
+    "set-contract": "node scripts/set-contract.mjs"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/mcp", "destination": "/api/gateway?__ag_route=/mcp" },
+    { "source": "/api/gateway", "destination": "/api/gateway" },
+    { "source": "/api/:subpath*", "destination": "/api/gateway?__ag_route=/api/:subpath*" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
+    }
+  ]
+}
